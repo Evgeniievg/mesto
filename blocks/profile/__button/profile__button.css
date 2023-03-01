@@ -6,7 +6,7 @@
   border: 1px #fff solid;
   cursor: pointer;
   transition: all ease .3s;
-  background-image: url(/images/Vector.png);
+  background-image: url(../../../images/Vector.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 22px;
