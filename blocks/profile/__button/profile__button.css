@@ -12,7 +12,7 @@
   opacity: .7;
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 768px) {
   .profile__button{
     width: 100%;
     margin-top: 33px;
