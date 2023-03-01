@@ -6,6 +6,10 @@
   border: 1px #fff solid;
   cursor: pointer;
   transition: all ease .3s;
+  background-image: url(/images/Vector.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px;
 }
 
 .profile__button:hover{
@@ -16,5 +20,6 @@
   .profile__button{
     width: 100%;
     margin-top: 33px;
+    background-size: 16px;
   }
 }
