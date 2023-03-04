@@ -3,17 +3,18 @@
   height: 50px;
   background-color: transparent;
   color: #fff;
-  border: 1px #fff solid;
+  border: 2px #fff solid;
   cursor: pointer;
   transition: all ease .3s;
-  background-image: url(../../../images/Vector.png);
+  background-image: url(../../../images/Vector.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 22px;
+  border-radius: 2px;
 }
 
 .profile__button:hover{
-  opacity: .7;
+  opacity: .6;
 }
 
 @media screen and (max-width: 768px) {
