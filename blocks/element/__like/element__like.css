@@ -15,6 +15,11 @@
 }
 
 .element__like:active{
-  background-image: url(../../../images/Union.png);
+  background-image: url(../../../images/Union.svg);
+}
+
+.element__like:active:hover{
+  background-image: url(../../../images/Union.svg);
+  opacity: 1;
 }
 
