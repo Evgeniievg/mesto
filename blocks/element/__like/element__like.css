@@ -8,6 +8,7 @@
   border: none;
   background-color: transparent;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .element__like:hover{
