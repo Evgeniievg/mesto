@@ -18,6 +18,7 @@
 
 @media screen and (max-width: 550px) {
   .element{
+    align-items: end;
     margin: auto;
     width: 80%;
   }
