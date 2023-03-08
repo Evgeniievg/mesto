@@ -39,36 +39,7 @@
           <button class="profile__button" type="button" aria-label="Добавить"></button>
         </section>
         <section class="elements">
-          <div class="element">
-            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Древний храм" class="element__image">
-            <h2 class="element__title">Карачаевск</h2>
-            <button class="element__like" aria-label="Лайк" type="button"></button>
-          </div>
-          <div class="element">
-            <img src="./images/elbrus.jpg" alt="Эльбрус" class="element__image">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__like" aria-label="Лайк" type="button"></button>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Лес и горы" class="element__image">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__like" aria-label="Лайк" type="button"></button>
-          </div>
-          <div class="element">
-            <img src="./images/elbrus.jpg" alt="Эльбрус" class="element__image">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__like" aria-label="Лайк" type="button"></button>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Лес и горы" class="element__image">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__like" aria-label="Лайк" type="button"></button>
-          </div>
-          <div class="element">
-            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Древний храм" class="element__image">
-            <h2 class="element__title">Карачаевск</h2>
-            <button class="element__like" aria-label="Лайк" type="button"></button>
-          </div>
+
         </section>
       </main>
       <footer class="footer">
@@ -76,6 +47,23 @@
       </footer>
     </div>
   </div>
+  <template id="popup-image">
+    <div class="popup-image">
+      <div class="popup-image__container">
+        <button class="popup-image__close"></button>
+        <img class="popup-image__image">
+        <p class="popup-image__title"></p>
+      </div>
+    </div>
+  </template>
+  <template id="element">
+    <div class="element">
+      <button class="element__delete" type="button" aria-label="Удалить"></button>
+      <img class="element__image">
+      <h2 class="element__title"></h2>
+      <button class="element__like" aria-label="Лайк" type="button"></button>
+    </div>
+  </template>
   <script src="./scripts/script.js"></script>
 </body>
 </html>
