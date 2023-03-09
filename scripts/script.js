@@ -99,7 +99,6 @@ function handleFormSubmit (evt) {
   } else{
     let newCard = {name: inputName.value, link: inputDesc.value};
     initialCards.push(newCard);
-    console.log(initialCards);
     addOneEl();
   }
   popClose();
@@ -142,7 +141,6 @@ const popImageClose = popImage.querySelector('.popup-image__close');
 
 
 const image = document.querySelectorAll('.element__image');
-console.log(image);
 
 image.forEach((item) => {
   item.addEventListener('click', function() {
