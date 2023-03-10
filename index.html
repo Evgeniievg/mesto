@@ -9,14 +9,25 @@
 </head>
 <body>
   <div class="page">
-    <div class="popup">
-      <div class="popup__container">
-        <button class="popup__close" type="button" aria-label="Закрыть"></button>
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="profile">
-          <input type="text" class="popup__input popup__input_type_title" name="name">
-          <input type="text" class="popup__input popup__input_type_description" name="description">
-          <button class="popup__button" type="submit">Сохранить</button>
+    <div class="popup-edit popup">
+      <div class="popup-edit__container popup__container">
+        <button class="popup-edit__close popup__close" type="button" aria-label="Закрыть"></button>
+        <h3 class="popup-edit__title popup__title">Редактировать профиль</h3>
+        <form class="popup-edit__form popup__form" name="profile">
+          <input type="text" class="popup-edit__input popup-edit__input_type_title popup__input popup__input_type_title" name="name">
+          <input type="text" class="popup-edit__input popup-edit__input_type_description popup__input popup__input_type_description" name="description">
+          <button class="popup-edit__button popup__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup-element popup">
+      <div class="popup-element__container popup__container">
+        <button class="popup-element__close popup__close" type="button" aria-label="Закрыть"></button>
+        <h3 class="popup-element__title popup__title">Новое место</h3>
+        <form class="popup-element__form popup__form" name="profile">
+          <input type="text" class="popup-element__input popup-element__input_type_title popup__input popup__input_type_title" name="name">
+          <input type="text" class="popup-element__input popup-element__input_type_description popup__input popup__input_type_description" name="description">
+          <button class="popup-element__button popup__button" type="submit">Сохранить</button>
         </form>
       </div>
     </div>

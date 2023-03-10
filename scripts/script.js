@@ -1,11 +1,15 @@
 const page = document.querySelector('.page')
 const edit = document.querySelector('.profile__edit');
-const popupEl = document.querySelector('.popup');
-const popupClose = document.querySelector('.popup__close');
-const popupTitle = document.querySelector('.popup__title')
-const formElement = document.querySelector('.popup__form');
-const inputName = document.querySelector('.popup__input_type_title');
-const inputDesc = document.querySelector('.popup__input_type_description')
+const popupEdit = document.querySelector('.popup-edit');
+const popupEditClose = document.querySelector('.popup-edit__close');
+const popupEditFormElement = document.querySelector('.popup-edit__form');
+const editInputName = document.querySelector('.popup-edit__input_type_title');
+const editInputDesc = document.querySelector('.popup-edit__input_type_description');
+const popupAdd = document.querySelector('.popup-element');
+const popupAddFormElement = document.querySelector('.popup-element__form');
+const popupAddName = document.querySelector('.popup-element__input_type_title');
+const popupAddDesc = document.querySelector('.popup-element__input_type_description');
+const popupAddClose = document.querySelector('.popup-element__close')
 const profileName = document.querySelector('.profile__title');
 const profileDesc = document.querySelector('.profile__description');
 const addButton = document.querySelector('.profile__button');
@@ -72,52 +76,59 @@ function addOneEl(){
   });
 }
 
-function popupOpen() {
-  popupEl.classList.add('popup_opened');
+function openEdit() {
+  popupEdit.classList.add('popup_opened');
 }
 
-function popClose() {
-  popupEl.classList.remove('popup_opened');
+function closeEdit() {
+  popupEdit.classList.remove('popup_opened');
 }
 
-function profileEdit() {
-  popupOpen()
-  popupTitle.textContent = 'Редактировать';
-  inputName.value = profileName.textContent;
-  inputDesc.value = profileDesc.textContent;
+function editProfile() {
+  openEdit()
+  editInputName.value = profileName.textContent;
+  editInputDesc.value = profileDesc.textContent;
 }
 
-edit.addEventListener('click', profileEdit);
+edit.addEventListener('click', editProfile);
 
-popupClose.addEventListener('click', popClose);
+popupEditClose.addEventListener('click', closeEdit);
 
 function handleFormSubmit (evt) {
   evt.preventDefault();
-  if (popupTitle.textContent === 'Редактировать') {
-    profileName.textContent = inputName.value;
-    profileDesc.textContent = inputDesc.value;
-  } else{
-    let newCard = {name: inputName.value, link: inputDesc.value};
-    initialCards.push(newCard);
-    addOneEl();
-  }
-  popClose();
+  profileName.textContent = editInputName.value;
+  profileDesc.textContent = editInputDesc.value;
+  closeEdit();
 }
 
-formElement.addEventListener('submit', handleFormSubmit);
+popupEditFormElement.addEventListener('submit', handleFormSubmit);
 
-function addCard() {
-  popupOpen()
-  inputName.value = '';
-  inputDesc.value = '';
-  popupEl.classList.add('popup_opened');
-  popupTitle.textContent = 'Новое место';
-  inputName.placeholder = 'Название';
-  inputDesc.placeholder = 'Новое место';
-
+function addCardOpen() {
+  popupAdd.classList.add('popup_opened');
+  popupAddName.placeholder = 'Название';
+  popupAddDesc.placeholder = 'Новое место';
 }
 
-addButton.addEventListener('click', addCard);
+addButton.addEventListener('click', addCardOpen);
+
+function addCardClose() {
+  popupAdd.classList.remove('popup_opened');
+  popupAddName.value = '';
+  popupAddDesc.value = '';
+}
+
+popupAddClose.addEventListener('click', addCardClose);
+
+function addFormSubmit (evt) {
+  evt.preventDefault();
+  const newCard = {name: popupAddName.value, link: popupAddDesc.value};
+  initialCards.push(newCard);
+  addCardClose();
+  addOneEl();
+}
+
+popupAddFormElement.addEventListener('submit', addFormSubmit);
+
 
 const like = document.querySelectorAll('.element__like')
 
