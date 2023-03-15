@@ -24,11 +24,18 @@
       <div class="popup-element__container popup__container">
         <button class="popup-element__close popup__close" type="button" aria-label="Закрыть"></button>
         <h3 class="popup-element__title popup__title">Новое место</h3>
-        <form class="popup-element__form popup__form" name="profile">
-          <input type="text" class="popup-element__input popup-element__input_type_title popup__input popup__input_type_title" name="name">
-          <input type="text" class="popup-element__input popup-element__input_type_description popup__input popup__input_type_description" name="description">
+        <form class="popup-element__form popup__form" name="new-card">
+          <input type="text" class="popup-element__input popup-element__input_type_title popup__input popup__input_type_title" name="name" placeholder="Название">
+          <input type="text" class="popup-element__input popup-element__input_type_description popup__input popup__input_type_description" name="description" placeholder="Ссылка на картинку">
           <button class="popup-element__button popup__button" type="submit">Сохранить</button>
         </form>
+      </div>
+    </div>
+    <div class="popup-image popup">
+      <div class="popup-image__container">
+        <button class="popup-image__close popup__close"></button>
+        <img class="popup-image__image">
+        <p class="popup-image__title"></p>
       </div>
     </div>
     <div class="page__wrapper">
@@ -57,15 +64,6 @@
       </footer>
     </div>
   </div>
-  <template id="popup-image">
-    <div class="popup-image">
-      <div class="popup-image__container">
-        <button class="popup-image__close"></button>
-        <img class="popup-image__image">
-        <p class="popup-image__title"></p>
-      </div>
-    </div>
-  </template>
   <template id="element">
     <div class="element">
       <button class="element__delete" type="button" aria-label="Удалить"></button>
