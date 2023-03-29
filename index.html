@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
+  <script defer src="./scripts/script.js"></script>
+  <script defer src="./scripts/validate.js"></script>
   <title>Место</title>
 </head>
 <body>
@@ -14,11 +16,11 @@
         <button class="popup-edit__close popup__close" type="button" aria-label="Закрыть"></button>
         <h3 class="popup-edit__title popup__title">Редактировать профиль</h3>
         <form class="popup-edit__form popup__form" name="profile" novalidate>
-          <input type="text" id="name-input" class="popup-edit__input popup-edit__input_type_title popup__input popup__input_type_title" name="name" required minlength="2" maxlength="40">
+          <input type="text" placeholder="Имя" id="name-input" class="popup-edit__input popup-edit__input_type_title popup__input popup__input_type_title" name="name" required minlength="2" maxlength="40">
           <span class="popup__input-error name-input-error"></span>
-          <input type="text" id="description-input" class="popup-edit__input popup-edit__input_type_description popup__input popup__input_type_description" name="description" required minlength="2" maxlength="400">
+          <input type="text" placeholder="О себе" id="description-input" class="popup-edit__input popup-edit__input_type_description popup__input popup__input_type_description" name="description" required minlength="2" maxlength="200">
           <span class="popup__input-error description-input-error"></span>
-          <button class="popup-edit__button popup__button" type="submit">Сохранить</button>
+          <button class="popup-edit__button popup__button" type="submit" disabled>Сохранить</button>
         </form>
       </div>
     </div>
@@ -31,7 +33,7 @@
           <span class="popup__input-error title-input-error"></span>
           <input id="link-input" class="popup-element__input popup-element__input_type_description popup__input popup__input_type_description" name="link" placeholder="Ссылка на картинку" required type="url">
           <span class="popup__input-error link-input-error"></span>
-          <button class="popup-element__button popup__button" type="submit">Сохранить</button>
+          <button class="popup-element__button popup__button" type="submit" disabled>Сохранить</button>
         </form>
       </div>
     </div>
@@ -76,7 +78,5 @@
       <button class="element__like" aria-label="Лайк" type="button"></button>
     </div>
   </template>
-  <script src="./scripts/script.js"></script>
-  <script src="./scripts/validate.js"></script>
 </body>
 </html>

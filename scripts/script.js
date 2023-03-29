@@ -1,5 +1,5 @@
 const page = document.querySelector('.page')
-const edit = document.querySelector('.profile__edit');
+const editButton = document.querySelector('.profile__edit');
 const popups = document.querySelectorAll('.popup');
 const closeButtons = document.querySelectorAll('.popup__close');
 const popupEdit = document.querySelector('.popup-edit');
@@ -77,13 +77,17 @@ initialCards.forEach(function(card) {
   elements.append(cardElement);
 })
 
+const openedPopup = document.querySelector('.popup_opened');
+
 
 function openPopup(popups) {
   popups.classList.add('popup_opened');
+  document.addEventListener('keydown', initClosePopupsWithEsc);
 }
 
 function closePopup(popups) {
   popups.classList.remove('popup_opened');
+  document.removeEventListener('keydown', initClosePopupsWithEsc);
 }
 
 function editProfile() {
@@ -92,7 +96,7 @@ function editProfile() {
   editInputDesc.value = profileDesc.textContent;
 }
 
-edit.addEventListener('click', editProfile);
+editButton.addEventListener('click', editProfile);
 
 function handleEditFormSubmit (evt) {
   evt.preventDefault();
@@ -100,11 +104,6 @@ function handleEditFormSubmit (evt) {
   profileDesc.textContent = editInputDesc.value;
   closePopup(popupEdit);
 }
-
-const popupButton =   document.querySelectorAll('popup__button');
-popupButton.forEach((button) => {
-  button.disabled = true;
-})
 
 popupEditFormElement.addEventListener('submit', handleEditFormSubmit);
 
@@ -130,33 +129,24 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-const closePopupWithEsc = () => {
-  document.addEventListener('keydown', function(evt) {
-    const openedPopup = Array.from(popups).find((popup) => {
-      return popup.classList.contains('popup_opened');
-    });
-    if ((evt.key === 'Escape' || evt.key === 'Esc') && openedPopup) {
-      closePopup(openedPopup)
-    }
-  })
-}
 
-closePopupWithEsc()
+const initClosePopupsWithEsc = (evt) => {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape' || evt.key === 'Esc') {
+    closePopup(openedPopup);
+  }
+};
 
-function closePopupWithClick() {
+function initClosePopupsWithClick() {
   popups.forEach((popup) => {
     popup.addEventListener('click', function(evt) {
-      const openedPopup = Array.from(popups).find((popup) => {
-        return popup.classList.contains('popup_opened');
-      });
-      if (evt.target === openedPopup) {
-        closePopup(openedPopup);
-      }
-    });
-  });
+      if (evt.target === evt.currentTarget) {
+        closePopup(evt.currentTarget);
+    }
+    })
+})
 }
-
-closePopupWithClick()
+initClosePopupsWithClick();
 
 
 
