@@ -1,3 +1,4 @@
+import { config } from "./validate.js";
 const page = document.querySelector('.page')
 const editButton = document.querySelector('.profile__edit');
 const popups = document.querySelectorAll('.popup');
@@ -18,6 +19,7 @@ const elementTemplate = document.querySelector('#element').content;
 const popImage = document.querySelector('.popup-image');
 const popImageImg = popImage.querySelector('.popup-image__image');
 const popImageTitle = popImage.querySelector('.popup-image__title');
+const saveButtons = document.querySelectorAll('.popup__button')
 
 const initialCards = [
   {
@@ -77,17 +79,19 @@ initialCards.forEach(function(card) {
   elements.append(cardElement);
 })
 
-const openedPopup = document.querySelector('.popup_opened');
-
 
 function openPopup(popups) {
   popups.classList.add('popup_opened');
-  document.addEventListener('keydown', initClosePopupsWithEsc);
+  document.addEventListener('keydown', closePopupsWithEsc);
 }
 
 function closePopup(popups) {
   popups.classList.remove('popup_opened');
-  document.removeEventListener('keydown', initClosePopupsWithEsc);
+  document.removeEventListener('keydown', closePopupsWithEsc);
+  saveButtons.forEach(button => {
+    button.disabled = true;
+    button.classList.add(config.inactiveButtonClass)
+  })
 }
 
 function editProfile() {
@@ -105,11 +109,14 @@ function handleEditFormSubmit (evt) {
   closePopup(popupEdit);
 }
 
+
+
 popupEditFormElement.addEventListener('submit', handleEditFormSubmit);
 
 addButton.addEventListener('click', () => {
   openPopup(popupAdd);
 });
+
 
 
 function handleCardFormSubmit (evt) {
@@ -130,9 +137,9 @@ closeButtons.forEach((button) => {
 });
 
 
-const initClosePopupsWithEsc = (evt) => {
-  const openedPopup = document.querySelector('.popup_opened');
+const closePopupsWithEsc = (evt) => {
   if (evt.key === 'Escape' || evt.key === 'Esc') {
+    const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
 };
