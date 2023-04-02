@@ -7,7 +7,8 @@ export const config = {
   errorClass: 'popup__input-error_active'
 }
 
-class FormValidator {
+
+export class FormValidator {
   constructor(config, form ) {
     this._config = config;
     this._form = form;
@@ -54,6 +55,15 @@ class FormValidator {
     }
   };
 
+  resetValidation(){
+    this._toggleButtonState();
+    this._inputs.forEach((inputElement) => {
+      const errorElement = inputElement.parentElement.querySelector(`.${inputElement.id}-error`);
+      this._hideInputError(inputElement, errorElement);
+    });
+      }
+
+
   _hasInvalidInput(inputElement){
     return this._inputs.some((inputElement) => {
       return !inputElement.validity.valid;
@@ -63,6 +73,7 @@ class FormValidator {
   _setEventListeners() {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
+      this._enableSaveButton();
     });
     this._toggleButtonState()
     this._inputs.forEach((inputElement) => {
@@ -80,9 +91,5 @@ class FormValidator {
 
 }
 
-const forms = document.querySelectorAll(config.formSelector);
 
-forms.forEach((form) => {
-  const validator = new FormValidator(config, form);
-  validator.enableValidation();
-})
+
