@@ -55,10 +55,6 @@ const initialCards = [
 function openPopup(popups) {
   popups.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupsWithEsc);
-  validators.forEach((validator) => {
-    validator.resetValidation();
-    });
-
 }
 
 function closePopup(popups) {
@@ -67,6 +63,7 @@ function closePopup(popups) {
 }
 
 function editProfile() {
+  resetFormValidation()
   openPopup(popupEdit);
   editInputName.value = profileName.textContent;
   editInputDesc.value = profileDesc.textContent;
@@ -86,6 +83,7 @@ function handleEditFormSubmit (evt) {
 popupEditFormElement.addEventListener('submit', handleEditFormSubmit);
 
 addButton.addEventListener('click', () => {
+  resetFormValidation()
   openPopup(popupAdd);
 });
 
@@ -131,6 +129,12 @@ initClosePopupsWithClick();
 
 const forms = document.querySelectorAll(config.formSelector);
 const validators = [];
+
+function resetFormValidation() {
+  validators.forEach((validator) => {
+    validator.resetValidation();
+    });
+}
 
 forms.forEach((form) => {
   const validator = new FormValidator(config, form);
