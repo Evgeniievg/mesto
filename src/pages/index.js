@@ -63,8 +63,7 @@ popupWithImage.setEventListeners();
 
 editButton.addEventListener('click', () => {
   const currentUserInfo = userInfo.getUserInfo();
-  editInputName.value = currentUserInfo.name;
-  editInputDesc.value = currentUserInfo.description;
+  profilePopup.setInputsValue(currentUserInfo);
   profilePopup.open();
 });
 
