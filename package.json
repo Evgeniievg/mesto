@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "\"Место\" - интерактивный вебсайт, позволяющий пользователям делиться опытом своих путешествий. На данный момент проект находится в состоянии разработки. В нем уже была реализована возможность изменять данные профиля, интерактивно добавлять или удалять места, ставить лайки и изменять фотографию в профиле. В ходе разработки были задействованы такие технологии, как:",
+  "main": "./pages/index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack serve"
+  },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evgeniievg/mesto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evgeniievg/mesto/issues"
+  },
+  "homepage": "https://github.com/Evgeniievg/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "cssnano": "^6.0.1",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "postcss-loader": "^7.3.0",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  },
+  "dependencies": {
+    "core-js": "^3.30.1"
+  }
+}
