@@ -1,13 +1,11 @@
 .element__like{
   width: 22px;
   height: 19px;
-  margin-right: 20px;
-  margin-bottom: 30px;
   transition: all ease .3s;
   background-image: url(../../../images/like.svg);
   border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: pointer;;
 }
 
 .element__like:hover{
@@ -22,4 +20,5 @@
   background-image: url(../../../images/Union.svg);
   opacity: 1;
 }
+
 
