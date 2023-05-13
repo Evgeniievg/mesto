@@ -17,7 +17,7 @@ const profile = document.querySelector(".profile");
 const editButton = profile.querySelector(".profile__edit");
 
 const addButton = profile.querySelector(".profile__button");
-const avatar = profile.querySelector(".profile__avatar");
+const avatar = profile.querySelector(".profile__avatar-container");
 
 const avatarForm = document.querySelector('.popup-avatar__form')
 

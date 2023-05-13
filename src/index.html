@@ -45,13 +45,11 @@
       <div class="popup__container">
         <button aria-label="Закрыть" type="button" class="popup__close"></button>
         <h3 class="popup__title">Обновить аватар</h3>
-        <form name="form" class="popup__form popup-avatar__form">
-          <div class="popup__input-container">
+        <form name="new-avatar" class="popup__form popup-avatar__form">
             <input
-              placeholder="Ссылка на картинку" name="link" required type="url" class="popup__input"
+              placeholder="Ссылка на картинку" name="link" required type="url" class="popup__input popup-avatar__input"
             />
             <span class="popup__input-error link-input-error"></span>
-          </div>
           <button type="submit" class="popup__button">
             Сохранить
           </button>
@@ -75,7 +73,9 @@
       <main class="main">
         <section class="profile">
           <div class="profile__user">
-              <img src="<%=require('./images/image.jpg')%>" alt="Фотография профиля" class="profile__avatar">
+              <div class="profile__avatar-container">
+                <img src="<%=require('./images/image.jpg')%>" alt="Фотография профиля" class="profile__avatar">
+              </div>
             <div class="profile__info">
               <div class="profile__texts">
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -107,6 +107,5 @@
       </div>
     </div>
   </template>
-  <script type="module" defer src="./pages/index.js"></script>
 </body>
 </html>

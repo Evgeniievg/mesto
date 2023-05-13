@@ -38,13 +38,26 @@ const popupAvatar = new PopupWithForm(
 const popupDelete = new PopupWithDelete(".popup-delete", deleteCard);
 const popupImage = new PopupWithImage(".popup-image");
 
-const validators = [];
+const formValidators = {}
 
-forms.forEach((form) => {
-  const validator = new FormValidator(validationConfig, form);
-  validator.enableValidation();
-  validators.push(validator);
-})
+const enableValidation = (validationConfig) => {
+  const formList = Array.from(document.querySelectorAll(validationConfig.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(validationConfig, formElement)
+    const formName = formElement.getAttribute('name')
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(validationConfig);
+
+
+formValidators['profile'].resetValidation()
+formValidators['new-card'].resetValidation()
+formValidators['new-avatar'].resetValidation()
+
+
 
 
 profilePopup .setEventListeners();
@@ -96,7 +109,7 @@ function handleLikeButton(card) {
 
 function handleEditForm(evt, inputItems) {
   evt.preventDefault();
-  profilePopup .renderLoading();
+  profilePopup.renderLoading(true);
   api
     .changeProfile(inputItems)
     .then((data) => {
@@ -105,13 +118,13 @@ function handleEditForm(evt, inputItems) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      profilePopup.renderLoading();
+      profilePopup.renderLoading(true);
     });
 }
 
 function handleAddForm(evt, inputItems) {
   evt.preventDefault();
-  popupAddingCard.renderLoading();
+  popupAddingCard.renderLoading(true);
   api
     .createCard(inputItems)
     .then((data) => {
@@ -120,7 +133,7 @@ function handleAddForm(evt, inputItems) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupAddingCard.renderLoading();
+      popupAddingCard.renderLoading(true);
     });
 }
 
@@ -139,7 +152,7 @@ function deleteCard(evt, { cardId, card }) {
 
 function handleAvatarForm(evt, { link }) {
   evt.preventDefault();
-  popupAvatar.renderLoading();
+  popupAvatar.renderLoading(true);
   api
     .changeAvatar(link)
     .then((data) => {
@@ -148,7 +161,7 @@ function handleAvatarForm(evt, { link }) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupAvatar.renderLoading();
+      popupAvatar.renderLoading(true);
     });
 }
 

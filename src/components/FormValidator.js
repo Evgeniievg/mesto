@@ -21,6 +21,14 @@ export class FormValidator {
     errorElement.classList.remove(this._config.errorClass);
   }
 
+  resetValidation(){
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      const errorElement = inputElement.parentElement.querySelector(`.${inputElement.id}-input-error`);
+      this._hideInputError(inputElement, errorElement);
+    });
+  }
+
   _checkInputValidity(input) {
     if (!input.validity.valid) {
       this._showInputError(input, input.validationMessage);
