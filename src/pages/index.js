@@ -52,9 +52,6 @@ const enableValidation = (validationConfig) => {
 enableValidation(validationConfig);
 
 
-formValidators['profile'].resetValidation()
-formValidators['new-card'].resetValidation()
-formValidators['new-avatar'].resetValidation()
 
 
 
@@ -117,7 +114,7 @@ function handleEditForm(evt, inputItems) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      profilePopup.renderLoading(true);
+      profilePopup.renderLoading(false);
     });
 }
 
@@ -132,7 +129,7 @@ function handleAddForm(evt, inputItems) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupAddingCard.renderLoading(true);
+      popupAddingCard.renderLoading(false);
     });
 }
 
@@ -160,21 +157,25 @@ function handleAvatarForm(evt, { link }) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupAvatar.renderLoading(true);
+      popupAvatar.renderLoading(false);
     });
 }
 
 editButton.addEventListener('click', () => {
   const currentUserInfo = userInfo.getUserInfo();
   profilePopup.setInputsValue(currentUserInfo);
+  formValidators['profile'].resetValidation();
   profilePopup.open();
+
 });
 
 addButton.addEventListener("click", () => {
+  formValidators['new-card'].resetValidation()
   popupAddingCard.open();
 });
 
 avatar.addEventListener("click", () => {
+  formValidators['new-avatar'].resetValidation()
   popupAvatar.open();
 });
 

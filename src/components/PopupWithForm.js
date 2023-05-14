@@ -11,7 +11,6 @@ class PopupWithForm extends Popup {
     this._inputValues = {};
     this.getInputValues = this.getInputValues.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.close = this.close.bind(this);
   }
 
   getInputValues() {
@@ -26,9 +25,6 @@ class PopupWithForm extends Popup {
     this._handleSubmit(evt, this.getInputValues());
   }
 
-  _disable(){
-    this._submitButton.classList.add('popup__button_inactive')
-  }
 
   renderLoading(isLoading, loadingText='Сохранение...') {
     if (isLoading) {
@@ -49,16 +45,10 @@ class PopupWithForm extends Popup {
     });
   }
 
-  open() {
-    super.open();
-    this._submitButton.textContent = "Сохранить";
-    this._submitButton.textContent = this._submitButtonText;
-  }
 
   close() {
     this._popupForm.reset();
     super.close();
-    this._disable();
   }
 }
 

@@ -22,7 +22,7 @@ export class FormValidator {
   }
 
   resetValidation(){
-    this._toggleButtonState();
+    this._disableSubmitButton();
     this._inputList.forEach((inputElement) => {
       const errorElement = inputElement.parentElement.querySelector(`.${inputElement.id}-input-error`);
       this._hideInputError(inputElement, errorElement);
